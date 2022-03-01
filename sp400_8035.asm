@@ -1,4 +1,5 @@
 ; dumped by HoverEel
+; compatible assembler https://github.com/daveho/asm48.git
 .org 0x0000,0xFF
   jmp main
 
