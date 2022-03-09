@@ -5,7 +5,7 @@
 # e1000
 # compatible with this assembler https://github.com/sbprojects/sbasm3.git
 
-noop=list(range(0xC87,0xFFD))
+noop=list(range(0xC87,0x1000))
 
 
 def toData(l):
@@ -23,7 +23,17 @@ with open("dasm.asm") as f,open("dasm_sb.asm","w") as g:
         except:
             currline=-1
 
-        if "???" in l or currline in noop:    
-            l=";"+l+toData(prevl)            
-        g.write(l)
+        wl=l       
+        if l[0]==";":
+            try:
+                addr=int(l[1:].split(":")[0],16)
+                wl=f"; l{addr:04x}: {toData(l)}"
+            except:
+                pass
+        else:    
+            if "???" in l or currline in noop:    
+                wl=";"+l+toData(prevl)
+
+            
+        g.write(wl)
         prevl=l
