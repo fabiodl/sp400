@@ -1,0 +1,37 @@
+fsp400_hd6805v1.bin
+b0000,1 portA
+b0001,1 portB
+b0002,1 portC
+b0003,1 portDdig
+b0004,1 DDRA
+b0005,1 DDRB
+b0006,1 DDRC
+b0007,1 portDana
+b0008,1 timerData
+b0009,1 timerCtrl
+b000a,6 unusedSpace0A
+b0010 unusedSpace10
+
+b0020 ram2x
+b0030 ram3x
+b0040 ram4x
+b0050 ram5x
+b0060 ram6x
+b0070 ram7x
+
+
+p0A1F timerInt
+p09E7 hwInt
+c0080
+b06B1,1
+c06B2 rstInt
+b07ca,2
+p07CB swInt
+
+
+v0ff8 timerVec
+v0ffa hwVec
+v0ffc swVev
+v0ffe rstVec
+e1000
+
